@@ -1,3 +1,8 @@
+from sys import _current_exceptions
+
+import numpy as np
+
+
 class Segment:
     len: float
     currentAngle: float
@@ -21,3 +26,11 @@ class Segment:
 
     def getErrorFromTarget(self):
         return self.targetAngle - self.currentAngle
+
+    def getRelativeXCoordinate(self) -> float:
+        x = self.len * np.cos(np.deg2rad(self.currentAngle))
+        return x
+
+    def getRelativeYCoordinate(self) -> float:
+        y = self.len * np.sin(np.deg2rad(self.currentAngle))
+        return y
