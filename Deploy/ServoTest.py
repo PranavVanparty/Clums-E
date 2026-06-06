@@ -12,15 +12,15 @@ def main():
         while True:
             print("Setting angle to 0º")
             kit.servo[0].angle = 0
-            time.sleep(2)
+            time.sleep(6)
 
             print("Setting angle to Midpoint")
             kit.servo[0].angle = int(range / 2)
-            time.sleep(2)
+            time.sleep(6)
 
             print("Setting angle to Max")
             kit.servo[0].angle = int(range)
-            time.sleep(2)
+            time.sleep(6)
 
     except KeyboardInterrupt:
         print("stopped")
