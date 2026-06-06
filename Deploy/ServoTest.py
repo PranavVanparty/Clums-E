@@ -3,24 +3,40 @@ from string import printable
 
 from adafruit_servokit import ServoKit
 
+continousServo = True
+
 
 def main():
     kit = ServoKit(channels=16)
     print("This is a test. Will move servo on Channel 0")
     try:
-        range = kit.servo[0].actuation_range
-        while True:
-            print("Setting angle to 0º")
-            kit.servo[0].angle = 0
-            time.sleep(6)
+        if continousServo:
+            print("Setting power to -0.5")
+            kit.continuous_servo[0].throttle = -0.5
+            time.sleep(3)
 
-            print("Setting angle to Midpoint")
-            kit.servo[0].angle = int(range / 2)
-            time.sleep(6)
+            print("Stopping Servo")
+            kit.continuous_servo[0].throttle = 0
+            time.sleep(3)
 
-            print("Setting angle to Max")
-            kit.servo[0].angle = int(range)
-            time.sleep(6)
+            print("Setting power to -0.5")
+            kit.continuous_servo[0].throttle = -0.5
+            time.sleep(3)
+
+        else:
+            range = kit.servo[0].actuation_range
+            while True:
+                print("Setting angle to 0º")
+                kit.servo[0].angle = 0
+                time.sleep(3)
+
+                print("Setting angle to Midpoint")
+                kit.servo[0].angle = int(range / 2)
+                time.sleep(3)
+
+                print("Setting angle to Max")
+                kit.servo[0].angle = int(range)
+                time.sleep(3)
 
     except KeyboardInterrupt:
         print("stopped")
