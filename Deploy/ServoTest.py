@@ -35,7 +35,7 @@ def calibrateServo(kit: ServoKit):
 
         kit.continuous_servo[0].throttle = 0
         time.sleep(2)
-        # print(f"Stop pulse: {stop_pulse}µs — did the servo stop?")
+        print(f"Stop pulse: {stop_pulse}µs — did the servo stop?")
         if kit.continuous_servo[0].fraction == 0:
             ans = input(
                 "The servo seems to have stopped. Should I save the value? (y or n):"
