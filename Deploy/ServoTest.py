@@ -20,6 +20,7 @@ def main():
 
             print("Setting angle to Max")
             kit.servo[0].angle = int(range)
+            time.sleep(2)
 
     except KeyboardInterrupt:
         print("stopped")
