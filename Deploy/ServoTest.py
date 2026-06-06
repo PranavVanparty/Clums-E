@@ -23,3 +23,7 @@ def main():
 
     except KeyboardInterrupt:
         print("stopped")
+
+
+if __name__ == "__main__":
+    main()
