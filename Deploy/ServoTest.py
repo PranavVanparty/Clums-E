@@ -1,6 +1,8 @@
-from string import printable
 import time
+from string import printable
+
 from adafruit_servokit import ServoKit
+
 
 def main():
     kit = ServoKit(channels=16)
@@ -13,8 +15,11 @@ def main():
             time.sleep(2)
 
             print("Setting angle to Midpoint")
-            kit.servo[0].angle = int(range/2)
+            kit.servo[0].angle = int(range / 2)
             time.sleep(2)
 
             print("Setting angle to Max")
             kit.servo[0].angle = int(range)
+
+    except KeyboardInterrupt:
+        print("stopped")
