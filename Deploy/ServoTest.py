@@ -14,7 +14,6 @@ def main():
             testContinuousServo(kit)
         else:
             testServo(kit)
-        kit.continuous_servo[0].fraction = 0
 
     except KeyboardInterrupt:
         print("stopped")
