@@ -12,7 +12,7 @@ def main():
     else:
         continuous_servo = False
 
-    slot = input("Enter slot number: ")
+    slot = int(input("Enter slot number: "))
 
     try:
         kit = ServoKit(channels=16)
