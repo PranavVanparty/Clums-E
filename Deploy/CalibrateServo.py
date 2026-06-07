@@ -34,3 +34,8 @@ def calibrateServo(kit: ServoKit):
 
             json.dump(data, open("ServoCalibration.json", "w"))
         break
+
+
+if __name__ == "__main__":
+    kit = ServoKit(channels=16)
+    calibrateServo(kit)
