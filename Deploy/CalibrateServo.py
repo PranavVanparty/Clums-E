@@ -33,7 +33,9 @@ def calibrateServo(kit: ServoKit):
             }
 
             json.dump(data, open("ServoCalibration.json", "w"))
-        break
+            break
+        else:
+            pass
 
 
 if __name__ == "__main__":
