@@ -3,15 +3,15 @@ import time
 
 from adafruit_servokit import ServoKit
 
-continous_servo = True
+continuous_servo = True
 
 
 def main():
     print("This is a test. Will move servo on Channel 0")
     try:
         kit = ServoKit(channels=16)
-        if continous_servo:
-            testContinousServo(kit)
+        if continuous_servo:
+            testContinuousServo(kit)
         else:
             testServo(kit)
         kit.continuous_servo[0].fraction = 0
@@ -21,12 +21,12 @@ def main():
     pass
 
 
-def testContinousServo(kit):
+def testContinuousServo(kit):
     name = input("Enter Servo name: ")
     min_pulse = json.load(open("ServoCalibration.json", "r"))[f"{name}"]["min_pulse"]
     max_pulse = json.load(open("ServoCalibration.json", "r"))[f"{name}"]["max_pulse"]
 
-    kit.continous_servo[0].set_pulse_width_range(min_pulse, max_pulse)
+    kit.continuous_servo[0].set_pulse_width_range(min_pulse, max_pulse)
     print("Setting power to -0.5")
     kit.continuous_servo[0].throttle = -0.5
     time.sleep(3)
